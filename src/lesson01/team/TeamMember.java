@@ -3,8 +3,8 @@ package lesson01.team;
 import lesson01.Status;
 
 public class TeamMember {
-    private final String name;
-    private final int power;
+    private String name;
+    private int power;
     private Status status;
 
     public TeamMember(String name, int power) {
