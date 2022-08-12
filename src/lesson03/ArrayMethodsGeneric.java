@@ -1,6 +1,6 @@
 package lesson03;
 
-public class ArrayMethodsGeneric <T extends Object> {
+public class ArrayMethodsGeneric <T> {
     T[] array;
 
     public ArrayMethodsGeneric(T...array) {
