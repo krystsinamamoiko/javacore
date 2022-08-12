@@ -44,6 +44,7 @@ public class Box <T extends Fruit> {
             another.addFruit(fruit);
         }
         this.fruits.clear();
+        this.fruits.trimToSize();
     }
 
     /**
