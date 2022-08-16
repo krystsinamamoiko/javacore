@@ -25,7 +25,7 @@ public class PhoneDirectory {
         if (directoryList.containsKey(surname)) {
             phones = directoryList.get(surname);
         }
-        phones.add(phoneNumber);
+        phones.add(phoneNumber.replaceAll(" ", ""));
         directoryList.put(surname, phones);
     }
 
