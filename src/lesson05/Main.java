@@ -16,9 +16,9 @@ public class Main {
             {21, 22, 23, 24}
         };
         // create using real data
-        //AppData appData1 = new AppData(testHeader, testData);
-        //appData1.print();
-        //appData1.save();
+        AppData appData1 = new AppData(testHeader, testData);
+        appData1.print();
+        appData1.save();
         // create using ready csv file
         AppData appData2 = new AppData(FILE_NAME, CSV_SPLIT_BY);
         appData2.print();
