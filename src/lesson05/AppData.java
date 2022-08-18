@@ -28,7 +28,7 @@ public class AppData {
      * @param fileName is the given csv file path.
      * @param cvsSplitBy is the given splitter.
      */
-    public void setDataFromCSV(String fileName, String cvsSplitBy) {
+    public void getDataFromCSV(String fileName, String cvsSplitBy) {
         this.fileName = fileName;
         this.cvsSplitBy = cvsSplitBy;
         try(BufferedReader br = new BufferedReader(new FileReader(fileName))) {

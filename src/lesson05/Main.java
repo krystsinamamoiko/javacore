@@ -16,7 +16,7 @@ public class Main {
         AppData appData1 = new AppData(testHeader, testData);
         appData1.print();
         appData1.saveDataIntoCSV();
-        appData1.setDataFromCSV(FILE_NAME, CSV_SPLIT_BY);
+        appData1.getDataFromCSV(FILE_NAME, CSV_SPLIT_BY);
         appData1.print();
     }
 }
