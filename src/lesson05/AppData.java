@@ -24,11 +24,13 @@ public class AppData {
     }
 
     /**
-     * Create appData object using data from the given csv file and the given splitter.
+     * Set parameters value using the given csv file and splitter.
      * @param fileName is the given csv file path.
      * @param cvsSplitBy is the given splitter.
      */
-    public AppData(String fileName, String cvsSplitBy) {
+    public void setDataFromCSV(String fileName, String cvsSplitBy) {
+        this.fileName = fileName;
+        this.cvsSplitBy = cvsSplitBy;
         try(BufferedReader br = new BufferedReader(new FileReader(fileName))) {
             header = br.readLine().split(cvsSplitBy);
             String line = "";
@@ -87,18 +89,25 @@ public class AppData {
     /**
      * Save appData into csv file
      */
-    public void save() {
+    public void saveDataIntoCSV() {
         try(PrintWriter pw = new PrintWriter(new BufferedWriter(new FileWriter(fileName)))) {
-            pw.println(String.join(cvsSplitBy, header));
+            StringBuffer line = new StringBuffer();
+            for (int i = 0; i < header.length; i++) {
+                line.append(header[i]);
+                if (i != header.length - 1) {
+                    line.append(cvsSplitBy);
+                }
+            }
+            pw.println(line);
             for (int i = 0; i < data.length; i++) {
-                String str = "";
+                line.delete(0, line.length());
                 for (int j = 0; j < data[i].length; j++) {
-                    str = str + data[i][j];
+                    line.append(data[i][j]);
                     if (j != data[i].length - 1) {
-                       str += cvsSplitBy;
+                        line.append(cvsSplitBy);
                     }
                 }
-                pw.println(str);
+                pw.println(line);
             }
         } catch(FileNotFoundException e) {
             e.printStackTrace();

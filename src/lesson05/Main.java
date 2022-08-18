@@ -6,21 +6,17 @@ public class Main {
 
 
     public static void main(String[] args) {
-        String[] testHeader = {"Val1", "Val2", "Val3", "Val4"};
+        String[] testHeader = {"Value 1", "Value 2", "Value 3"};
         int[][] testData = {
-            {1, 2, 3, 4},
-            {5, 6, 7, 8},
-            {9, 10, 11, 12},
-            {13, 14, 15, 16},
-            {17, 18, 19, 20},
-            {21, 22, 23, 24}
+            {100, 200, 123},
+            {300, 400, 500}
         };
+
         // create using real data
         AppData appData1 = new AppData(testHeader, testData);
         appData1.print();
-        appData1.save();
-        // create using ready csv file
-        AppData appData2 = new AppData(FILE_NAME, CSV_SPLIT_BY);
-        appData2.print();
+        appData1.saveDataIntoCSV();
+        appData1.setDataFromCSV(FILE_NAME, CSV_SPLIT_BY);
+        appData1.print();
     }
 }
